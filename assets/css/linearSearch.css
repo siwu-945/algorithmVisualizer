@@ -1,0 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#intro{
+    margin-left:64px;
+    margin-right:64px;
+    color: #b3b7bb;
+}
+
+.header {
+    font-size: 35px;
+    text-align: center;
+    color: #6b5b95;
+
+}
+
+#array {
+    background-color: white;
+    height: 305px;
+    width: 598px;
+    margin: auto;
+    position: relative;
+    margin-top: 64px;
+}
+
+.block {
+    width: 28px;
+    background-color: #6b5b95;
+    position: absolute;
+    bottom: 0px;
+    transition: 0.2s all ease;
+}
+
+.block_id {
+    position: absolute;
+    color: black;
+    margin-top: -20px;
+    width: 100%;
+    text-align: center;
+}
