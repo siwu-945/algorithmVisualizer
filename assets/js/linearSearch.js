@@ -1,9 +1,19 @@
 var container = document.getElementById("array");
 
+function linear(){
+    enable_buttons();
+    LinearSearch();
+}
+
 // Asynchronous LinearSearch function
 async function LinearSearch(delay = 300) {
+
     var blocks = document.querySelectorAll(".block");
     var output = document.getElementById("text");
+    var worstTimeComplex = document.getElementById("Worst Case");
+    var bestTimeComplex = document.getElementById("Best_case");
+    worstTimeComplex.innerText="Worst Case: O(N)";
+    bestTimeComplex.innerText="Best Case: Ω(1)";
 
 //Extracting the value entered by the user
     var num = document.getElementById("fname").value;
@@ -47,5 +57,3 @@ async function LinearSearch(delay = 300) {
         output.innerText = "Element Not Found";
     }
 }
-// Calling generatearray function
-//sortMain.generateInitialArray(sizeNum);
