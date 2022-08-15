@@ -6,37 +6,54 @@
           content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/css_bs/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/linearSearch.css" />
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-light py-4" style="background-color: #71743A;">
+        <div class="navbar-header">
+             <h1 class="header">Searching Visualization</h1>
+            <a class="navbar-brand" href="#">Searching Options</a>
+        </div>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                 <li class="nav-item">
+                     <button style = "background: #71743A" class = "selecting_alg"> Linear search</button>
+                 </li>
+                <li class="nav-item">
+                    <button style = "background: #71743A" class = "selecting_alg"> Quick Search</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <button style = "background: #71743A" class = "selecting_alg">Binary Search</button>
                 </li>
             </ul>
         </div>
-        <h1 class="header">Searching Visualization</h1>
     </nav>
 </head>
-    <body style = "background: #333333">
+    <body style = "background: #D5BA90">
     <br/>
         <div id="intro">
             <p>At this page, the system will initially generate 10 random numbers represented by the column chart below. You can enter a number of your choice, and click search, the system will deploy linear search to find the number you just put down.</p>
-        </div>
-        <div id="array" style = "background: #333333"></div>
+            <div id="Info_Cont">
+                <h3>TIME COMPLEXITY</h3>
+                <div class="Complexity_Containers" id="Time_Complexity_Types_Container">
+                    <div class="Pair_Definitions">
+                        <p class="Sub_Heading" id="Worst Case"></p>
+                    </div>
+
+                    <div class="Pair_Definitions">
+                        <p class="Sub_Heading" id="Best_case"></p>
+                    </div>
+                </div>
+            </div>
+        <div id="array" style = "background: #D5BA90"></div>
         <br /><br />
         <div style="text-align: center">
             <label for="fname">Number to be Searched:</label>
             <input type="text" id="fname" name="fname" />
             <label for="arraySize"> Numer of Array </label>
-            <input type="text" id="arraySize" name="arraySize" value=10 />
+            <input type="text" id="arraySize" name="arraySize" value=20 />
 
             <br /><br />
             <button id="btn" onclick="LinearSearch()">Search</button>
