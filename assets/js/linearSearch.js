@@ -1,35 +1,36 @@
 var container = document.getElementById("array");
 var btn = document.getElementsByClassName("selecting_alg");
 
-// var clicked1 = false;
-// var clicked2 = false;
-// btn[0].onclick = function(){
-//     clicked1 = true;
-// }
-// btn[2].onclick = function(){
-//     clicked2 =true;
-// }
+var clicked1 = true;
+var clicked2 = false;
+
+btn[0].onclick = function(){
+    clicked1 = true;
+    clicked2 = false;
+}
+btn[2].onclick = function(){
+    clicked1 = false;
+    clicked2 =true;
+}
 
 //To wait for .1 sec
 const sleep = (time) =>{
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-// for(var x = 0; x < btn.length; x++){
-//     btn[x].addEventListener("click", activate(x));
-// }
-//
-// function activate(index){
-//     btn[index].innerHTML = true;
-// }
-
-function LinearSearch(delay = 300) {
+function searchAlgo(delay = 300) {
     var blocks = document.querySelectorAll(".block");
     var output = document.getElementById("text");
     var worstTimeComplex = document.getElementById("Worst Case");
     var bestTimeComplex = document.getElementById("Best_case");
-    worstTimeComplex.innerText="Worst Case: O(N)";
-    bestTimeComplex.innerText="Best Case: Ω(1)";
+    if(clicked1){
+        worstTimeComplex.innerText="Worst Case: O(n)";
+        bestTimeComplex.innerText="Best Case: Ω(1)";
+    }else if(clicked2){
+        worstTimeComplex.innerText="Worst Case: O(log n)";
+        bestTimeComplex.innerText="Best Case: Ω(1)";
+    }
+
 
 //Extracting the value entered by the user
     var num = document.getElementById("fname").value;
@@ -96,19 +97,13 @@ function LinearSearch(delay = 300) {
             output.innerText = "Element Not Found";
         }
     }
-    // if(clicked1 === true){
-    //     linearSearch().then(r=>console.log("error"));
-    // }
-    // else if(clicked2 === true){
-    //     binarySearch().then(r=>console.log("error"));
-    // }
-    // btn[0].addEventListener("click", function(){linearSearch();});
-    // btn[2].addEventListener("click", function(){binarySearch();});
+    if(clicked1 === true){
+        linearSearch().then(r=>console.log("error"));
+    }
+    else if(clicked2 === true) {
+        binarySearch().then(r => console.log("error"));
+    }
 
-    btn[0].addEventListener("click", () => linearSearch());
-    btn[2].addEventListener("click", () => binarySearch());
-    //linearSearch().then(r => console.log("error"));
-    //binarySearch().then(r => console.log("error"));
 //When element is not found in the array
     if (flag == 0) {
         output.innerText = "Element Not Found";
