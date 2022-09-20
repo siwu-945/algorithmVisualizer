@@ -33,19 +33,19 @@ function generateInitialArray() {
 }
 
 function generateSortedArray(){
-    var sorted = [];
+    var array = [];
 
     for(var i = 0; i<sizeNum; i++){
         var innerVal = Number(Math.ceil(Math.random()*100));
-        sorted.push(innerVal);
+        array.push(innerVal);
     }
 
-    sorted.sort(function (a, b){
+    array.sort(function (a, b){
         return a-b;
     });
 
     for (var i = 0; i < 20; i++) {
-        var value = sorted[i];
+        var value = array[i];
 
         // Creating element div
         var array_ele = document.createElement("div");
