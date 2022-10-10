@@ -1,5 +1,5 @@
 var container = document.getElementById("array");
-var btn = document.getElementsByClassName("selecting_alg");
+var btn = document.getElementsByClassName("nav-link");
 
 var clicked1 = true;
 var clicked2 = false;
@@ -13,6 +13,8 @@ btn[2].onclick = function(){
     clicked2 =true;
 }
 
+
+
 //To wait for .1 sec
 const sleep = (time) =>{
     return new Promise(resolve => setTimeout(resolve, time));
@@ -21,12 +23,15 @@ const sleep = (time) =>{
 function searchAlgo(delay = 300) {
     var blocks = document.querySelectorAll(".block");
     var output = document.getElementById("text");
+    var searchAlgoName = document.getElementById("algoName");
     var worstTimeComplex = document.getElementById("Worst Case");
     var bestTimeComplex = document.getElementById("Best_case");
     if(clicked1){
+        searchAlgoName.innerText = "Time Complexity of Linear Search is:"
         worstTimeComplex.innerText="Worst Case: O(n)";
         bestTimeComplex.innerText="Best Case: Ω(1)";
     }else if(clicked2){
+        searchAlgoName.innerText = "Time Complexity of Binary Search is:"
         worstTimeComplex.innerText="Worst Case: O(log n)";
         bestTimeComplex.innerText="Best Case: Ω(1)";
     }
