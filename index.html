@@ -6,26 +6,38 @@
           content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/css_bs/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/linearSearch.css" />
-    <nav class="navbar navbar-light py-4" style="background-color: #71743A;">
-        <div class="navbar-header">
-             <h1 class="header">Searching Visualization</h1>
-            <a class="navbar-brand" href="#">Searching Options</a>
-        </div>
 
+    <div class="WebsiteName" style="background-color: #71743A;">
+        <h1 class="header">Searching Visualization</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #71743A;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-                     <button class = "selecting_alg"> Linear search</button>
-                 </li>
+            <ul class="navbar-nav mr-auto" id ="optionLst" >
                 <li class="nav-item">
-                    <button class = "selecting_alg"> Quick Search</button>
+                    <a class="nav-link" >Searching Options</a>
                 </li>
                 <li class="nav-item">
-                    <button class = "selecting_alg">Binary Search</button>
+                    <button class = "nav-link"> Linear search</button>
+                </li>
+
+                <li class="nav-item">
+                    <button class = "nav-link">Binary Search</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" >Sorting Options</a>
+                </li>
+                <li class="nav-item">
+                    <button class = "nav-link" onclick="BubbleSort()"> Bubble Sort</button>
+                </li>
+                <li class="nav-item">
+                    <button class = "nav-link" onclick="QuickSort(0,19)"> Quick Sort</button>
+                </li>
+                <li class="nav-item">
+                    <button class = "nav-link" onclick="Randomize(0,19)"> Randomize the Arrays</button>
                 </li>
             </ul>
         </div>
@@ -34,9 +46,24 @@
     <body style = "background: #D5BA90">
     <br/>
         <div id="intro">
-            <p>At this page, the system will initially generate 20 random numbers represented by the column chart below. You can enter a number of your choice, and click search, the system will deploy linear search to find the number you just put down.</p>
+            <h2>At this page, the system will initially generate 20 random numbers represented by the column chart below. </h2>
+            <ul id = "instructions">
+                <li>
+                    <p>You can first sort the arrays with options like Merge Sort, Bubble Sort</p>
+                </li>
+                <li>
+                    <p>Then you can enter a number of your choice, and click search, the system will deploy linear search to find the number you just put down.</p>
+                </li>
+                <li>
+                    <p>Or you can also search the number with your desire algorithm</p>
+                </li>
+                <li>
+                    <p>Beware, you may not be able to perform searches correctly if you haven't sort the arrays yet. </p>
+                </li>
+            </ul>
+
             <div id="Info_Cont">
-                <h3>TIME COMPLEXITY</h3>
+                <p class="Sub_Heading" id="algoName"></p>
                 <div class="Complexity_Containers" id="Time_Complexity_Types_Container">
                     <div class="Pair_Definitions">
                         <p class="Sub_Heading" id="Worst Case"></p>
@@ -49,11 +76,31 @@
             </div>
         <div id="array" style = "background: #D5BA90"></div>
         <br /><br />
+        </div>
         <div style="text-align: center">
             <label for="fname">Number to be Searched:</label>
             <input type="text" id="fname" name="fname" />
-            <label for="arraySize"> Number of Array </label>
-            <input type="text" id="arraySize" name="arraySize" value=20 />
+<!--            <label for="arraySize"> Number of Array </label>-->
+<!--            <input type="text" id="arraySize" name="arraySize" value=20 />-->
+            <form action="#">
+                <label>Choose the speed of how fast the algorithm should run: </label>
+                <select list="speed" id = "arraySize">
+                    <option value = "5" > Size 5</option>
+                    <option value = "10" > Size 10</option>
+                    <option value = "20"> Size 20</option>
+                    <option value = "30"> Size 30</option>
+                </select>
+            </form>
+
+            <form action="#">
+                <label>Choose the speed of how fast the algorithm should run: </label>
+                <select list="speed" id = "speedVal">
+                    <option value = "1"> 1ms delay</option>
+                    <option value = "10"> 10ms delay</option>
+                    <option value = "50"> 50ms delay</option>
+                    <option value = "200"> 200ms delay</option>
+                </select>
+            </form>
 
             <br /><br />
             <button id="btn" onclick="searchAlgo()">Search</button>
