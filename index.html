@@ -34,10 +34,10 @@
                     <button class = "nav-link" onclick="BubbleSort()"> Bubble Sort</button>
                 </li>
                 <li class="nav-item">
-                    <button class = "nav-link" onclick="QuickSort(0,19)"> Quick Sort</button>
+                    <button class = "nav-link" onclick="QuickSort(0,30)"> Quick Sort</button>
                 </li>
                 <li class="nav-item">
-                    <button class = "nav-link" onclick="Randomize(0,19)"> Randomize the Arrays</button>
+                    <button class = "nav-link" onclick="Randomize()"> Randomize the Arrays</button>
                 </li>
             </ul>
         </div>
@@ -80,15 +80,13 @@
         <div style="text-align: center">
             <label for="fname">Number to be Searched:</label>
             <input type="text" id="fname" name="fname" />
-<!--            <label for="arraySize"> Number of Array </label>-->
-<!--            <input type="text" id="arraySize" name="arraySize" value=20 />-->
             <form action="#">
                 <label>Choose the speed of how fast the algorithm should run: </label>
-                <select list="speed" id = "arraySize">
-                    <option value = "5" > Size 5</option>
-                    <option value = "10" > Size 10</option>
-                    <option value = "20"> Size 20</option>
-                    <option value = "30"> Size 30</option>
+                <select list="sze" id = "arraySize">
+                    <option value = "30" class="size"> Size 30</option>
+                    <option value = "20" class="size"> Size 20</option>
+                    <option value = "10" class="size"> Size 10</option>
+                    <option value = "5" class="size"> Size 5</option>
                 </select>
             </form>
 
