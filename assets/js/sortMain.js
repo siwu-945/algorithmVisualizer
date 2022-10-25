@@ -2,7 +2,10 @@ var sizeNum1 = document.getElementById("arraySize")[0].value;
 var sizeNum = parseInt(sizeNum1);
 var divs = [];
 var firstTime = 1;
-
+// for(var i = 0; i < 4; i++){
+//     var blockSize = document.getElementsByClassName("size")[0];
+//     blockSize.addEventListener("click", updateArray);
+// }
 var speedStr = document.getElementById("speedVal")[0].value;
 var speed = parseInt(speedStr);
 
@@ -53,7 +56,7 @@ function swap(b1, b2){
             setTimeout(() => {
                 container.insertBefore(b2, b1);
                 resolve();
-            }, 250);
+            }, speed*100);
         });
     });
 }
@@ -71,11 +74,12 @@ async function BubbleSort(delay = speed) {
             blocks[j + 1].style.backgroundColor = "#FF4949";
 
             // To wait for .1 sec
-            await new Promise((resolve) =>
-                setTimeout(() => {
-                    resolve();
-                }, delay)
-            );
+                await new Promise((resolve) =>
+                    setTimeout(() => {
+                        resolve();
+                    }, speed)
+                );
+
 
             console.log("run");
             var value1 = Number(blocks[j].childNodes[0].innerHTML);
@@ -200,15 +204,15 @@ async function lometo_partition(l, r, delay = speed*7) {
     );
     //document.getElementsByClassName("range")[0].innerText = "";
     for (var k = 0; k < sizeNum; k++)
-        blocks[k].style.backgroundColor = "#6b5b95";
+        blocks[k].style.backgroundColor = "#343920";
     return i;
 }
 
 
 async function QuickSort(l, r, delay = speed) {
-    if(firstTime == 1){
-        r = sizeNum-1;
-        firstTime = firstTime+1;
+    if(firstTime == 1) {
+        r = sizeNum - 1;
+        firstTime = firstTime + 1;
         if (l < r) {
             // Storing the index of pivot element after partition
             var pivot_idx = await lometo_partition(l, r);
@@ -228,12 +232,12 @@ async function QuickSort(l, r, delay = speed) {
             await QuickSort(pivot_idx + 1, r);
         }
     }
-
 }
 
 function Randomize(){
     deletePreviousArray();
     generateInitialArray();
+    firstTime=1;
 }
 
 
