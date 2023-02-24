@@ -13,9 +13,6 @@ btn[2].onclick = function(){
     clicked2 =true;
 }
 
-
-
-//To wait for .1 sec
 const sleep = (time) =>{
     return new Promise(resolve => setTimeout(resolve, time));
 }
