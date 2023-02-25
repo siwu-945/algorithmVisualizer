@@ -6,8 +6,13 @@ var firstTime = 1;
 //     var blockSize = document.getElementsByClassName("size")[0];
 //     blockSize.addEventListener("click", updateArray);
 // }
-var speedStr = document.getElementById("speedVal")[0].value;
-var speed = parseInt(speedStr);
+var speedSelect = document.getElementById("speedVal");
+speed = parseInt(speedSelect.value)
+
+speedSelect.addEventListener("change", function() {
+    speed = parseInt(speedSelect.value);
+    console.log("Selected speed is now " + speed);
+});
 
 // Function to generate the array of blocks
 function generateInitialArray() {
@@ -56,7 +61,7 @@ function swap(b1, b2){
             setTimeout(() => {
                 container.insertBefore(b2, b1);
                 resolve();
-            }, speed*100);
+            }, speed);
         });
     });
 }
@@ -77,7 +82,7 @@ async function BubbleSort(delay = speed) {
                 await new Promise((resolve) =>
                     setTimeout(() => {
                         resolve();
-                    }, speed)
+                    }, delay)
                 );
 
 
@@ -154,7 +159,7 @@ async function lometo_partition(l, r, delay = speed*7) {
     for (var j = l; j <= r - 1; j++) {
         // To change background-color of the
         // blocks to be compared
-        blocks[j].style.backgroundColor = "yellow";
+        blocks[j].style.backgroundColor = "#FF4949";
         // To wait for 700 milliseconds
         await new Promise((resolve) =>
             setTimeout(() => {
@@ -174,15 +179,15 @@ async function lometo_partition(l, r, delay = speed*7) {
             blocks[i].childNodes[0].innerText =
                 blocks[j].childNodes[0].innerText;
             blocks[j].childNodes[0].innerText = temp2;
-            blocks[i].style.backgroundColor = "orange";
-            if (i != j) blocks[j].style.backgroundColor = "pink";
+            blocks[i].style.backgroundColor = "#FF4949";
+            if (i != j) blocks[j].style.backgroundColor = "#6b5b95";
             //To wait for 700 milliseconds
             await new Promise((resolve) =>
                 setTimeout(() => {
                     resolve();
                 }, delay)
             );
-        } else blocks[j].style.backgroundColor = "pink";
+        } else blocks[j].style.backgroundColor = "#6b5b95";
     }
     // Swapping the ith with pivot element
     i++;
@@ -193,8 +198,8 @@ async function lometo_partition(l, r, delay = speed*7) {
     blocks[i].childNodes[0].innerText =
         blocks[r].childNodes[0].innerText;
     blocks[r].childNodes[0].innerText = temp2;
-    blocks[r].style.backgroundColor = "pink";
-    blocks[i].style.backgroundColor = "green";
+    blocks[r].style.backgroundColor = "#6b5b95";
+    blocks[i].style.backgroundColor = "#343920";
 
     // To wait for 2100 milliseconds
     await new Promise((resolve) =>
